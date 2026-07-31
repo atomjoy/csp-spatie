@@ -116,7 +116,7 @@ class AppSmartPolicy implements Preset
 
 		// (Disabled sample only) Włączenie Nonce dla skryptów oraz stylów inline (niepotrzebne)!!!
 		// $this->addNonce(Directive::SCRIPT)->addNonce(Directive::STYLE);
-		// Przykład z włączonym nonce i unsafe-online: Support/Csp/AppPolicy.php
+		// Przykład z włączonym nonce i unsafe-inline: Support/Csp/AppPolicy.php
 	}
 }
 ```

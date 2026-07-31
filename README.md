@@ -7,6 +7,17 @@ CSP - Content Security Policy w Laravel, przyklady spatie/laravel-csp.
 composer require spatie/laravel-csp
 ```
 
+## Config
+
+```php
+'presets' => [
+	// Spatie\Csp\Presets\Basic::class,
+	App\Support\Csp\AppSmartPolicy::class,
+	Spatie\Csp\Presets\MetaPixel::class,
+	Spatie\Csp\Presets\GoogleMaps::class,
+],
+```
+
 ### AppSmartPolicy
 
 ```php

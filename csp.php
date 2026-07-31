@@ -12,6 +12,7 @@ return [
     'presets' => [
         // Spatie\Csp\Presets\Basic::class,
         App\Support\Csp\AppSmartPolicy::class,
+        Spatie\Csp\Presets\MetaPixel::class,
         Spatie\Csp\Presets\GoogleMaps::class,
     ],
 

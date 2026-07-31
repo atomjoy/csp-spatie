@@ -25,11 +25,12 @@ class AppSmartPolicy implements Preset
 			// CONNECT - kontrola fetch lub XHR
 			->add(Directive::CONNECT, [
 				Keyword::SELF,
+				'https://www.googletagmanager.com',
+				'https://googlesyndication.com',
 				'https://*.google-analytics.com',
 				'https://*.analytics.google.com',
 				'https://*.g.doubleclick.net',
 				'https://*.google.com',
-				'https://googlesyndication.com',
 				'https://*.spotifycdn.com',
 			])
 
@@ -38,15 +39,21 @@ class AppSmartPolicy implements Preset
 				Keyword::SELF,
 				'data:',
 				'blob:',
+				'https://img.icons8.com',
+				'https://googletagmanager.com',
+				'https://www.googletagmanager.com',
 				'https://*.google-analytics.com',
 				'https://*.g.doubleclick.net',
 				'https://*.google.com',
 				'https://*.spotifycdn.com',
+				'https://ssl.gstatic.com',
+				'https://www.gstatic.com',
 			])
 
 			// FONT
 			->add(Directive::FONT, [
 				Keyword::SELF,
+				'data:',
 				'https://gstatic.com',
 				'https://cdnjs.cloudflare.com'
 			])
@@ -56,6 +63,7 @@ class AppSmartPolicy implements Preset
 				Keyword::SELF,
 				Keyword::UNSAFE_INLINE,
 				'https://cdnjs.cloudflare.com',
+				'https://googletagmanager.com',
 				'https://www.googletagmanager.com',
 				'https://*.google-analytics.com',
 				'https://*.analytics.google.com',
@@ -70,7 +78,9 @@ class AppSmartPolicy implements Preset
 				Keyword::UNSAFE_INLINE,
 				'https://cdnjs.cloudflare.com',
 				'https://googleapis.com',
-				'https://fonts.googleapis.com'
+				'https://fonts.googleapis.com',
+				'https://www.googletagmanager.com',
+				'https://tagmanager.google.com',
 			])
 
 			// Form payments
@@ -85,10 +95,15 @@ class AppSmartPolicy implements Preset
 			// Odblokowane odtwarzacze wideo, music (YouTube, Vimeo itp.) w iframe
 			->add(Directive::FRAME, [
 				Keyword::SELF,
+				'https://youtube.com',
+				'https://youtube-nocookie.com',
 				'https://*.youtube.com',
 				'https://*.youtube-nocookie.com',
 				'https://player.vimeo.com',
 				'https://spotify.com'
 			]);
+
+		// (Disabled sample only) Włączenie Nonce dla skryptów oraz stylów inline (niepotrzebne)!!!
+		// $this->addNonce(Directive::SCRIPT)->addNonce(Directive::STYLE);
 	}
 }

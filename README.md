@@ -116,6 +116,7 @@ class AppSmartPolicy implements Preset
 
 		// (Disabled sample only) Włączenie Nonce dla skryptów oraz stylów inline (niepotrzebne)!!!
 		// $this->addNonce(Directive::SCRIPT)->addNonce(Directive::STYLE);
+		// Przykład z włączonym nonce i unsafe-online: Support/Csp/AppPolicy.php
 	}
 }
 ```
@@ -141,8 +142,8 @@ Dzięki blokadzie w Directive::CONNECT, wbudowany złośliwy kod nie będzie mó
 
 Reguła Directive::FORM_ACTION, Keyword::SELF gwarantuje, że żaden formularz na stronie nie zostanie podmieniony tak, aby wysyłał wpisane przez użytkownika dane logowania na zewnętrzny, podrobiony serwer.
 
-- Podsumowanie
+- Podsumowanie (Przykład z włączonym nonce i unsafe-inline: Support/Csp/AppPolicy.php)
 
 Wprowadzenie nonce podnosi bezpieczeństwo strony na najwyższy poziom (blokuje absolutnie każdy kod inline), ale wiąże się z trudniejszym utrzymaniem aplikacji. Pozostawienie CSP z 'unsafe-inline' to bardzo rozsądny kompromis między bezpieczeństwem a wygodą programowania – strona wciąż jest o wiele bezpieczniejsza niż witryna, która w ogóle nie posiada nagłówka Content-Security-Policy.
-Jeśli chcesz, możemy sprawdzić, jak za pomocą dyrektywy upgrade-insecure-requests automatycznie zabezpieczyć wszystkie połączenia HTTP na Twojej stronie. Interesuje Cię ten temat?
+Jeśli chcesz, możemy sprawdzić, jak za pomocą dyrektywy upgrade-insecure-requests automatycznie zabezpieczyć wszystkie połączenia HTTP na Twojej stronie. 
 

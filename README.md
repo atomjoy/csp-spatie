@@ -1,5 +1,5 @@
 # csp-spatie
-Co to jest CSP - Content Security Policy w Laravel, przyklady laravel-spatie.
+CSP - Content Security Policy w Laravel, przyklady spatie/laravel-csp.
 
 ## Install
 
@@ -106,4 +106,29 @@ class AppSmartPolicy implements Preset
 }
 ```
 
+## Jaki to ma sens bez nonce?
+
+Nawet bez użycia klucza nonce i z włączonym 'unsafe-inline', Twoja polityka CSP nadal pełni bardzo ważną rolę ochronną i kontrolną.
+Oto konkretne powody, dlaczego warto zostawić tę konfigurację:
+
+- Pełna kontrola nad tym, skąd pobierane są pliki
+
+Twoja polityka CSP w obecnej formie nadal surowo kontroluje zewnętrzne zasoby. Jeśli cyberprzestępca zdoła wstrzyknąć złośliwy skrypt na Twoją stronę (np. poprzez lukę w bazie danych), przeglądarka całkowicie zablokuje próbę pobrania pliku .js z nieznanego serwera. Skrypt zadziała tylko wtedy, gdyby napastnik umieścił cały kod bezpośrednio w bazie (inline), co w przypadku skomplikowanych ataków jest znacznie trudniejsze.
+
+- Ochrona przed kradzieżą danych i "Clickjackingiem"
+
+Twoja dyrektywa Directive::FRAME, Keyword::NONE (przed dodaniem YouTube/Spotify) lub restrykcyjne reguły uniemożliwiają osadzanie Twojej strony wewnątrz obcych serwisów. Chroni to użytkowników przed atakami typu Clickjacking (nakładanie niewidzialnych ramek w celu wyłudzenia kliknięć).
+
+- Kontrola nad wyciekiem danych (CONNECT)
+
+Dzięki blokadzie w Directive::CONNECT, wbudowany złośliwy kod nie będzie mógł po cichu wysłać wykradzionych danych (np. haseł czy numerów kart) na obcy serwer za pomocą fetch lub XHR. Przeglądarka pozwoli na komunikację wyłącznie z Twoją domeną oraz zaufanymi serwerami Google/Spotify.
+
+- Ochrona przed złośliwymi formularzami (FORM_ACTION)
+
+Reguła Directive::FORM_ACTION, Keyword::SELF gwarantuje, że żaden formularz na stronie nie zostanie podmieniony tak, aby wysyłał wpisane przez użytkownika dane logowania na zewnętrzny, podrobiony serwer.
+
+- Podsumowanie
+
+Wprowadzenie nonce podnosi bezpieczeństwo strony na najwyższy poziom (blokuje absolutnie każdy kod inline), ale wiąże się z trudniejszym utrzymaniem aplikacji. Pozostawienie CSP z 'unsafe-inline' to bardzo rozsądny kompromis między bezpieczeństwem a wygodą programowania – strona wciąż jest o wiele bezpieczniejsza niż witryna, która w ogóle nie posiada nagłówka Content-Security-Policy.
+Jeśli chcesz, możemy sprawdzić, jak za pomocą dyrektywy upgrade-insecure-requests automatycznie zabezpieczyć wszystkie połączenia HTTP na Twojej stronie. Interesuje Cię ten temat?
 

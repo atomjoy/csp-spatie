@@ -76,7 +76,7 @@ class AppSmartPolicy implements Preset
 				'https://googlesyndication.com',
 			])
 
-			// STYLE - Dokładnie według Twoich logów z błędów
+			// STYLE
 			->add(Directive::STYLE, [
 				Keyword::SELF,
 				Keyword::UNSAFE_INLINE,

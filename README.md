@@ -102,6 +102,9 @@ class AppSmartPolicy implements Preset
 				'https://player.vimeo.com',
 				'https://spotify.com'
 			]);
+
+		// (Disabled sample only) Włączenie Nonce dla skryptów oraz stylów inline (niepotrzebne)!!!
+		// $this->addNonce(Directive::SCRIPT)->addNonce(Directive::STYLE);
 	}
 }
 ```

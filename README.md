@@ -1,4 +1,4 @@
-# csp-spatie
+# Csp Spatie Laravel
 CSP - Content Security Policy w Laravel, przyklady spatie/laravel-csp.
 
 ## Install

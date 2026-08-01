@@ -39,7 +39,7 @@ class AppSmartPolicy implements Preset
 				Keyword::SELF,
 				'data:',
 				'blob:',
-				'https://img.icons8.com',
+				'https://raw.githubusercontent.com',
 				'https://googletagmanager.com',
 				'https://www.googletagmanager.com',
 				'https://*.google-analytics.com',

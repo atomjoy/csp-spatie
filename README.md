@@ -48,7 +48,9 @@ class AppSmartPolicy implements Preset
 			// CONNECT - kontrola fetch lub XHR
 			->add(Directive::CONNECT, [
 				Keyword::SELF,
-				'https://www.googletagmanager.com',
+				'https://googletagmanager.com',
+				'https://*.googletagmanager.com',
+				'https://*.googleadservices.com',
 				'https://googlesyndication.com',
 				'https://*.google-analytics.com',
 				'https://*.analytics.google.com',
@@ -62,15 +64,16 @@ class AppSmartPolicy implements Preset
 				Keyword::SELF,
 				'data:',
 				'blob:',
-				'https://raw.githubusercontent.com',
 				'https://googletagmanager.com',
-				'https://www.googletagmanager.com',
+				'https://*.googletagmanager.com',
+				'https://*.googleadservices.com',
 				'https://*.google-analytics.com',
 				'https://*.g.doubleclick.net',
 				'https://*.google.com',
 				'https://*.spotifycdn.com',
 				'https://ssl.gstatic.com',
 				'https://www.gstatic.com',
+				'https://raw.githubusercontent.com',
 			])
 
 			// FONT
@@ -84,26 +87,27 @@ class AppSmartPolicy implements Preset
 			// SCRIPT
 			->add(Directive::SCRIPT, [
 				Keyword::SELF,
-				Keyword::UNSAFE_INLINE,
-				'https://cdnjs.cloudflare.com',
 				'https://googletagmanager.com',
-				'https://www.googletagmanager.com',
+				'https://*.googletagmanager.com',
+				'https://*.googleadservices.com',
 				'https://*.google-analytics.com',
 				'https://*.analytics.google.com',
 				'https://*.g.doubleclick.net',
 				'https://*.google.com',
 				'https://googlesyndication.com',
+				'https://cdnjs.cloudflare.com',
 			])
 
 			// STYLE - Dokładnie według Twoich logów z błędów
 			->add(Directive::STYLE, [
 				Keyword::SELF,
-				Keyword::UNSAFE_INLINE,
-				'https://cdnjs.cloudflare.com',
+				'https://googletagmanager.com',
+				'https://*.googletagmanager.com',
+				'https://*.googleadservices.com',
 				'https://googleapis.com',
 				'https://fonts.googleapis.com',
-				'https://www.googletagmanager.com',
 				'https://tagmanager.google.com',
+				'https://cdnjs.cloudflare.com',
 			])
 
 			// Form payments
@@ -118,8 +122,10 @@ class AppSmartPolicy implements Preset
 			// Odblokowane odtwarzacze wideo, music (YouTube, Vimeo itp.) w iframe
 			->add(Directive::FRAME, [
 				Keyword::SELF,
-				'td.doubleclick.net',
-				'https://www.googletagmanager.com',
+				'https://td.doubleclick.net',
+				'https://googletagmanager.com',
+				'https://*.googletagmanager.com',
+				'https://*.googleadservices.com',
 				'https://youtube.com',
 				'https://youtube-nocookie.com',
 				'https://*.youtube.com',

@@ -58,6 +58,7 @@ class AppSmartPolicy implements Preset
 				Keyword::SELF,
 				'data:',
 				'https://gstatic.com',
+				'https://fonts.gstatic.com',
 				'https://cdnjs.cloudflare.com'
 			])
 

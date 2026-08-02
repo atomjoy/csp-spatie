@@ -118,6 +118,8 @@ class AppSmartPolicy implements Preset
 			// Odblokowane odtwarzacze wideo, music (YouTube, Vimeo itp.) w iframe
 			->add(Directive::FRAME, [
 				Keyword::SELF,
+				'td.doubleclick.net',
+				'https://www.googletagmanager.com',
 				'https://youtube.com',
 				'https://youtube-nocookie.com',
 				'https://*.youtube.com',
